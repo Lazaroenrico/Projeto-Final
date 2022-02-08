@@ -59,7 +59,7 @@ let t = [
     nome: "Takemichi",
     posicao: "oposto",
   },
-  { nome: "Kagyeiama", posicao: "levantador" },
+  { nome: "Kageyama", posicao: "levantador" },
   { nome: "Draken", posicao: "central" },
   { nome: "Myke", posicao: "ponta 1" },
   { nome: "Kisake", posicao: "ponta 2" },
@@ -227,7 +227,7 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
       console.log(`O ${i.nome} joga na posição ${i.posicao}`);
       console.log();
     }
-    console.log(`\n Comigo de capitão(${t.central}), eu tenho a confiança e vejo a possibilidade
+    console.log(`\n Comigo de capitão(Myke), eu tenho a confiança e vejo a possibilidade
     de ganahrmos a Liga RJ esse ano !
      Novato, você era conhecido pelos seus passes 'perfeitos' e sua combinação de 
      jogadas com seus antigos membros, depois iremos ver realmente se suas 
@@ -261,7 +261,7 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
       console.log(`O ${i.nome} joga na posição ${i.posicao}`);
       console.log();
     }
-    `\n Comigo de capitão(${a.levantador}) e com Jelleal de tecnico,
+    `\n Comigo de capitão(Sanji) e com Jelleal de tecnico,
     ganharemos essa Liga Rj este ano !
     Novato, você era conhecido pelos seus ataques e pela sua velocidade 
     dentro de campo permitindo passar pelo bloqueio, depois iremos
@@ -294,7 +294,7 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
       console.log();
     }
     console.log(`
-    \n Comigo de capitão(${o.libero}), ganharemos novamente a Liga RJ e nos
+    \n Comigo de capitão(Toru), ganharemos novamente a Liga RJ e nos
     tornaremos os maiores ganhadores da liga. !
     Novato, você era conhecido pelos seus passes e pela sua recepção que
     era de se assustar, depois iremos ver realmente se suas 
