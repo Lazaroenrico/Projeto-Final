@@ -2,10 +2,11 @@ console.clear();
 const prompt = require("prompt-sync")();
 console.log();
 
-console.log("                                                VÔLEI   ");
+console.log(" VÔLEI:   ");
 
 //variveis e arrays
 let challenge;
+let escola;
 let school;
 let turn = 0;
 var finish;
@@ -119,21 +120,47 @@ function posicao() {
   e deve sempre estar posicionado de forma a receber o passe do levantador.`);
 }
 
-//Function de treino
-function treino(esolca) {
-  let escola = RandArray(school1);
-  while (school == escola) {
-    RandArray(school1);
-     escola = RandArray(school1);
-  }
-  return escola;
-}
-
 //função para escolher um valor aleatório dentro de um array
 function RandArray(array) {
   let rand = (Math.random() * array.length) | 0;
   let result = array[rand];
   return result;
+}
+
+//Funções de treino:
+function RandArray2(array) {
+  let rand = Math.round(Math.random() * 3);
+  let result = array[rand];
+  return result;
+}
+function treino(a) {
+  escola = RandArray2(school1);
+  while (a == escola) {
+    RandArray2(school1);
+    escola = RandArray2(school1);
+  }
+  return escola;
+}
+function treino2() {
+  escola = treino2(school);
+  console.log(
+    `A escola com a qual jogaremos contra será: ${escola.toUpperCase()}`
+  );
+}
+
+//Function de escolha de liga:
+function Liga() {
+  console.log(`A liga ja vai começar, o sorteio do time que irá se 
+    enfrentar ja saiu.
+    E o time não sorteado enfrentará o vencedor em uma final, pois
+    houve um incidente com a ultima escola e ela não poderá estar
+    presente na Liga Rj desse ano.
+    O time não sorteado será o sortudo do ano.
+    `);
+  escola = treino(school);
+  console.log(
+    `O SORTEIO DEU ${escola.toUpperCase()} X ${school.toUpperCase()}`
+  );
 }
 
 //função para não precisar repetir isso nas 3 escolas
@@ -144,20 +171,6 @@ function random1() {
     ${RandArray(desafio)} 
     
      (Você perdeu ${status.dstamina(10)} de stamina)`);
-}
-
-//Função de sorteio da Liga ( ver se precisa ou nao)
-function random2() {
-  console.log(`A liga ja vai começar, o sorteio do time que irá se 
-    enfrentar ja saiu e será:
-
-    ${RandArray(school1)} x ${RandArray(school1 - 1)}.
-    
-   E o time não sorteado enfrentará o vencedor em uma final, pois
-   houve um incidente com a ultima escola e ela não poderá estar
-   presente na Liga Rj desse ano.
-    O time não sorteado será o sortudo do ano.
-    `);
 }
 
 //rodizio de saque
@@ -223,18 +236,20 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
     console.log("----------------------------------------------");
     console.log();
     console.log(`Novato ${character}, iremos agora apresentar  o nosso time:`);
+    console.log();
     for (let i of t) {
       console.log(`O ${i.nome} joga na posição ${i.posicao}`);
       console.log();
     }
     console.log(`\n Comigo de capitão(Myke), eu tenho a confiança e vejo a possibilidade
-    de ganahrmos a Liga RJ esse ano !
+    de ganahrmos a Liga RJ esse ano !\n
      Novato, você era conhecido pelos seus passes 'perfeitos' e sua combinação de 
      jogadas com seus antigos membros, depois iremos ver realmente se suas 
-     habilidades são tudo isso, no treino depois da aula.`);
+     habilidades são tudo isso no treino depois da aula.`);
     console.log();
     console.log();
-    treino(school)
+    treino(school);
+    treino2();
   }
   if (school == "Aomine") {
     console.clear();
@@ -253,20 +268,24 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
     console.log();
     console.log("----------------------------------------------");
     console.log();
+    console.clear()
     random1();
     console.log("----------------------------------------------");
     console.log();
     console.log(`Novato ${character}, iremos agora apresentar  o nosso time:`);
+    console.log();
     for (let i of a) {
       console.log(`O ${i.nome} joga na posição ${i.posicao}`);
       console.log();
     }
     `\n Comigo de capitão(Sanji) e com Jelleal de tecnico,
-    ganharemos essa Liga Rj este ano !
+    ganharemos essa Liga Rj este ano !\n
     Novato, você era conhecido pelos seus ataques e pela sua velocidade 
     dentro de campo permitindo passar pelo bloqueio, depois iremos
-    ver realmente se suas habilidades são tudo isso,
+    ver realmente se suas habilidades são tudo isso
     no treino depois da aula.`;
+    treino(school);
+    treino2();
   }
 
   if (school == "Oikawa") {
@@ -289,15 +308,18 @@ seu sonho de ganhar sua primeira partida na Liga RJ.`
     console.log("----------------------------------------------");
     console.log();
     console.log(`Novato ${character}, iremos agora apresentar  o nosso time:`);
+    console.log();
     for (let i of o) {
       console.log(`O ${i.nome} joga na posição ${i.posicao}`);
       console.log();
     }
     console.log(`
     \n Comigo de capitão(Toru), ganharemos novamente a Liga RJ e nos
-    tornaremos os maiores ganhadores da liga. !
+    tornaremos os maiores ganhadores da liga. !\n
     Novato, você era conhecido pelos seus passes e pela sua recepção que
     era de se assustar, depois iremos ver realmente se suas 
-    habilidades são tudo isso, no treino depois da aula.`);
+    habilidades são tudo isso no treino depois da aula.`);
+    treino(school);
+    treino2();
   }
 } while (finish == "s");
