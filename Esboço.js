@@ -295,7 +295,7 @@ dar certo é menor `);
               console.log(placar2)
             }
             else if(rod == 2){
-              console.log('Boa vocÊ conseguiu receber bem !')
+              console.log('Boa você conseguiu receber bem !')
               rod = rolai()
               console.log(rod)
 
@@ -313,10 +313,17 @@ dar certo é menor `);
                   if( attk == 'sim'){
                 console.log('| Você passou para o levantador |')
                 console.log()
-                console.log('O LEVANTADOR: ')
+                console.log('O LEVANTADOR: ') 
+                console.log()
+                console.log('Oposto essa é sua !!')
+                console.log()
+                console.log('| PONTO |')
+                console.log()
+                console.log('Viu como que se joga novato !')
+                placar++
                 
                   }else if(attk == 'nao'){
-                    console.log('tomo no cu ent')
+                    console.log('')
                   }
               }
             }
@@ -394,7 +401,9 @@ que possui como técnico Atsushi, que ganhou no passado jogando
 pelo mesmo time que está atualmente.
 
 A Jornada deste jogo deciderá se ${character} irá ter sucesso em
-seu sonho de ganhar sua primeira partida na Liga RJ.`
+seu sonho de entrar para um time no colegial.
+
+ E esse sonho só acontecerá se ele ganhar seu primeiro jogo treino.`
     );
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -461,7 +470,9 @@ que possui o ex-tecnico da seleção brasileira Jelleal,
 que é rigoroso em seus treinos.
 
 A Jornada deste jogo deciderá se ${character} irá ter sucesso em
-seu sonho de ganhar sua primeira partida na Liga RJ.`
+seu sonho de entrar para um time no colegial.
+
+ E esse sonho só acontecerá se ele ganhar seu primeiro jogo treino.`
     );
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -530,7 +541,9 @@ que é o vôlei e irá jogar pelo colégio Oikawa,
 que é o atual campeão da Liga RJ juntamente com o técnico Roberto.
 
 A Jornada deste jogo deciderá se ${character} irá ter sucesso em
-seu sonho de ganhar sua primeira partida na Liga RJ.`
+seu sonho de entrar para um time no colegial.
+
+ E esse sonho só acontecerá se ele ganhar seu primeiro jogo treino.`
     );
     console.log();
     clear = prompt(`De enter para continuar...`);
