@@ -25,13 +25,15 @@ let pontuacao = {
     this.turn++;
   },
   mudancaSet: function () {
-    if (placar >= placar2 && placar - placar2 == 3) {
+    if (placar > placar2 ) {
       this.seuTime++;
-      console.log(`Seu time Ganhou o set com: ${this.seuTime}`);
+      console.log(`Seu time ganhou ${this.seuTime} set(s).`);
+      console.log()
     }
-    if (placar2 >= placar && placar2 - placar == 3) {
+    if (placar2 > placar ) {
       this.timeInimigo++;
-      console.log(`O time inimigo ganhou o set com: ${this.timeInimigo} `);
+      console.log(`Seu time ganhou ${this.timInimigo} set(s).`);
+      console.log()
     }
   },
 };
@@ -51,8 +53,8 @@ relogio = {
   },
   mostrar: function () {
     console.log(`------------------------`);
-    console.log(`Se passaram Hora:${this.Hora}hr(s)`);
-    console.log(`Se passsaram minutos:${this.Minuto}`);
+    console.log(`Se passaram ${this.Hora}hr(s) de jogo`);
+    console.log(`Se passsaram ${this.Minuto} minutos de jogo`);
     console.log(`------------------------`);
   },
 };
@@ -162,6 +164,7 @@ function obs() {
   console.log("----------------------------------------------");
 }
 
+
 //Função para mostra das posições
 function posicao() {
   console.log(`As posições existentes e o número de jogadores no vôlei são:
@@ -248,7 +251,8 @@ function Game() {
   placar = 0;
   placar2 = 0;
 
-  Game: for (let i = 0; i < 25; i++) {
+  Game: for (let i = 0; i < 3; i++) {
+    console.log('for interno', i)
     testesaque = rodizio(teste);
 
     Teste: while (testesaque == 1) {
@@ -273,6 +277,7 @@ dar certo é menor `);
       console.log();
       while (defesa != 1 && defesa != 2) {
         defesa = +prompt("Invalido, digite novamente: ");
+        console.log()
       }
       if (defesa == 1) {
         rod = rolai();
@@ -286,11 +291,10 @@ dar certo é menor `);
           console.clear();
 
           placar2++;
-          console.log(placar2);
         } else if (rod == 2) {
+          console.log()
           console.log("Boa você conseguiu receber bem !");
           rod = rolai();
-          
 
           if (rod == 1 || rod == 2) {
             console.log();
@@ -330,6 +334,9 @@ dar certo é menor `);
               console.log("Porra novato, não consegui chegar a tempo");
               console.log("essa era do levantador !!");
               console.log();
+              relogio.tempo(4);
+             relogio.mostrar();
+             console.log()
               clear = prompt("Enter...");
               console.clear();
               placar2++;
@@ -384,41 +391,38 @@ dar certo é menor `);
         testesaque = 2;
       }
       if (rod == 2 || rod == 3) {
-        console.log()
+        console.log();
         console.log("Vocês conseguem receber o saque do time inimigo");
         console.log("e loga em seguida passa para o levanatdor");
         console.log();
         console.log("Você quer realizar um corte ? ");
+        console.log()
         let corte = prompt("Resposta: ");
 
         while (
           corte.toLowerCase() != "sim" &&
           corte != "s" &&
           corte.toLowerCase() != "nao" &&
-          corte.toLowerCase() != "n" 
-          
+          corte.toLowerCase() != "n"
         ) {
           console.log();
           corte = prompt('Digite "sim" ou "nao": ');
         }
 
-        if (
-          corte.toLowerCase() == "sim" ||
-          corte.toLowerCase() == "s"
-        ) {
-          
+        if (corte.toLowerCase() == "sim" || corte.toLowerCase() == "s") {
+          console.log()
           console.log("Você realiza o corte e faz o ponto");
+          console.log()
           relogio.tempo(3);
           relogio.mostrar();
-         
+
           ++placar;
           testesaque = 2;
         }
-        if (
-          corte.toLowerCase() == "nao" ||
-          corte.toLowerCase() == "n"
-        ) {
+        if (corte.toLowerCase() == "nao" || corte.toLowerCase() == "n") {
+          console.log()
           console.log("Você joga com segurança a bola para o outro lado !");
+          console.log()
           relogio.tempo(1);
           relogio.mostrar();
           continue Teste;
@@ -427,14 +431,14 @@ dar certo é menor `);
     }
   }
   pontuacao.mudancaSet();
-  console.log(pontuacao);
+
 }
 
 // INICIO DO JOGO
 console.log();
 console.log();
 
-console.log(" O Fanático: ");
+console.log(" The bug: ");
 console.log();
 console.log();
 
@@ -442,6 +446,8 @@ const character = prompt("Digite um nome para seu personagem: ");
 
 console.log();
 do {
+  console.clear()
+
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
   console.log();
   console.log("-Torishima");
@@ -526,32 +532,12 @@ seu sonho de entrar para um time no colegial.
     console.clear();
     console.log("----------------------------------------------");
     console.log();
-    console.log('O colegio chegou e o jogo começou:')
-    console.log()
+    console.log("O colegio chegou e o jogo começou:");
+    console.log();
+   for(let i = 0; i < 3; i++){
     Game();
-    if (pontuacao.seuTime == 1) {
-      console.log(
-        "Boa novato, você foi bem para seu primeiro set, faltam mais 2"
-      );
-    } else if (pontuacao.timInimigo == 1) {
-      console.log("Você poderia ter ido melhor para sua primeira partida.");
     }
-    Game();
-    if (pontuacao.seuTime == 2) {
-      console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-    } else if (pontuacao.timInimigo == 2) {
-      console.log("É novato, infelizmente esse era seu teste para entrar");
-      console.log("E você falhou.");
-    } else if (pontuacao.seuTime == 1 && pontuacao.timInimigo == 1) {
-      console.log("É novato, esse jogo vai definir tudo em !");
-      Game();
-      if (pontuacao.seuTime == 2) {
-        console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-      } else if (pontuacao.timInimigo == 2) {
-        console.log("É novato, infelizmente esse era seu teste para entrar");
-        console.log("E você falhou.");
-      }
-    }
+    
   }
   if (school == "Aomine") {
     console.clear();
@@ -622,32 +608,13 @@ seu sonho de entrar para um time no colegial.
     console.clear();
     console.log("----------------------------------------------");
     console.log();
-    console.log('O colegio chegou e o jogo começou:')
-    console.log()
-    Game();
-    if (pontuacao.seuTime == 1) {
-      console.log(
-        "Boa novato, você foi bem para seu primeiro set, faltam mais 2"
-      );
-    } else if (pontuacao.timInimigo == 1) {
-      console.log("Você poderia ter ido melhor para sua primeira partida.");
-    }
-    Game();
-    if (pontuacao.seuTime == 2) {
-      console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-    } else if (pontuacao.timInimigo == 2) {
-      console.log("É novato, infelizmente esse era seu teste para entrar");
-      console.log("E você falhou.");
-    } else if (pontuacao.seuTime == 1 && pontuacao.timInimigo == 1) {
-      console.log("É novato, esse jogo vai definir tudo em !");
+    console.log("O colegio chegou e o jogo começou:");
+    console.log();
+
+    for(let i = 0; i < 3; i++){
+      console.log('for externo', i)
       Game();
-      if (pontuacao.seuTime == 2) {
-        console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-      } else if (pontuacao.timInimigo == 2) {
-        console.log("É novato, infelizmente esse era seu teste para entrar");
-        console.log("E você falhou.");
       }
-    }
   }
 
   if (school == "Oikawa") {
@@ -715,60 +682,35 @@ seu sonho de entrar para um time no colegial.
     console.clear();
     console.log("----------------------------------------------");
     console.log();
-    console.log('O colegio chegou e o jogo começou:')
-    console.log()
+    console.log("O colegio chegou e o jogo começou:");
+    console.log();
+    for(let i = 0; i < 3; i++){
     Game();
-    if (pontuacao.seuTime == 1) {
-      console.log(
-        "Boa novato, você foi bem para seu primeiro set, faltam mais 2"
-      );
-    } else if (pontuacao.timInimigo == 1) {
-      console.log("Você poderia ter ido melhor para sua primeira partida.");
     }
-    Game();
-    if (pontuacao.seuTime == 2) {
-      console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-    } else if (pontuacao.timInimigo == 2) {
-      console.log("É novato, infelizmente esse era seu teste para entrar");
-      console.log("E você falhou.");
-    } else if (pontuacao.seuTime == 1 && pontuacao.timInimigo == 1) {
-      console.log("É novato, esse jogo vai definir tudo em !");
-      Game();
-      if (pontuacao.seuTime == 2) {
-        console.log("Boa novato, você ganhou seu primeiro jogo treino !");
-      } else if (pontuacao.timInimigo == 2) {
-        console.log("É novato, infelizmente esse era seu teste para entrar");
-        console.log("E você falhou.");
-      }
-    }
+    
+    
   }
   
   console.log('                 FIM DE SUA CAMINHA                  ')
   console.log()
-  console.log('Caso você tenha ganho e quer jogar ')
-  console.log('novamente, digite abaixo ')
-  console.log()
-  console.log('-----------------------------------------')
-  console.log('Caso você perdeu que pena, espero')
-  console.log('que tenha gostado, caso queira jogar')
-  console.log('novamente, digite abaixo ')
+  console.log('Espero que você tenha gostado dessa experiência ')
+  console.log('e obrigado por ter jogado até aqui !')
 
-console.log("Digite 'sim' caso queira jogar novamente ")
-console.log("e 'nao' caso não queira")
+console.log()
+console.log()
+console.log('Caso queira jogar novamente digite "SIM abaixo"')
 console.log()
 finish = prompt('Resposta: ')
 
-while(finish.toLowerCase != "sim" &&
-finish.toUpperCase() != "sim" &&
+while(finish.toLowerCase() != "sim" &&
 finish != "s" &&
-finish.toLowerCase != "nao" &&
-finish.toUpperCase() != "nao" &&
+finish.toLowerCase() != "nao" &&
 finish != "n" ){
   console.log()
+
   finish = prompt('Digite "sim" ou "nao" : ')
 
-}
 
-
-
-} while (finish == "s");
+    
+  }
+} while (finish == "s" || finish.toLowerCase() == 'sim');
