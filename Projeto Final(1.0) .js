@@ -4,7 +4,7 @@ console.log();
 
 //variveis e arrays
 let school;
-var finish;
+let finish = 'sim';
 let relogio;
 let attk;
 let placar = 0;
@@ -19,7 +19,7 @@ let testesaque;
 
 let pontuacao = {
   timInimigo: 0,
-  seuTime: 0,
+  seuTime: 0 ,
   turn: 0,
   metodo: function () {
     this.turn++;
@@ -27,12 +27,12 @@ let pontuacao = {
   mudancaSet: function () {
     if (placar > placar2 ) {
       this.seuTime++;
-      console.log(`Seu time ganhou ${this.seuTime} set(s).`);
+      console.log(`Seu time ganhou ${this.seuTime } set(s).`);
       console.log()
     }
     if (placar2 > placar ) {
       this.timeInimigo++;
-      console.log(`Seu time ganhou ${this.timInimigo} set(s).`);
+      console.log(`Seu time ganhou ${this.timInimigo } set(s).`);
       console.log()
     }
   },
@@ -443,7 +443,8 @@ console.log();
 const character = prompt("Digite um nome para seu personagem: ");
 
 console.log();
-do {
+while (finish != "s" || finish != 'sim');
+{
   console.clear()
 
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
@@ -711,4 +712,4 @@ finish != "n" ){
 
     
   }
-} while (finish == "s" || finish.toLowerCase() == 'sim');
+}
