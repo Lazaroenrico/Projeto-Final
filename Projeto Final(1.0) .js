@@ -255,7 +255,7 @@ function Game() {
     testesaque = rodizio(teste);
 
     Teste: while (testesaque == 1) {
-      console.log();
+      
       console.log("O libero inimigo recebeu.");
       console.log();
       clear = prompt("Enter...");
@@ -611,7 +611,7 @@ seu sonho de entrar para um time no colegial.
     console.log();
 
     for(let i = 0; i < 3; i++){
-      console.log('for externo', i)
+      
       Game();
       }
   }
