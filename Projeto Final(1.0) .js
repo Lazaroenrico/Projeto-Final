@@ -14,7 +14,6 @@ let rod;
 let clear;
 let rodar;
 let testesaque;
-let i = 0
         
 //objeto e alguns com metodos
 
@@ -445,12 +444,6 @@ const character = prompt("Digite um nome para seu personagem: ");
 console.log();
 do
 {
-  placar = 0
-  turn = 0
-  placar2 = 0
- 
-
-
   console.clear();
 
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
@@ -539,7 +532,7 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-    
+    let i = 0   
     while(i < 3){
       i++
       Game();
@@ -617,7 +610,7 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-
+    let i = 0
     while(i < 3){
       i++
       Game();
@@ -691,6 +684,7 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
+    let i = 0
     while(i < 3){
       i++
       Game();
