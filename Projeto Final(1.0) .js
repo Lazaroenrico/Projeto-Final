@@ -159,11 +159,10 @@ function obs() {
   console.log();
   console.log("As partidas de vôlei, terão uma duração menor do que");
   console.log("o convencional, para que o jogador não sature");
-  console.log("de sua jogabilidade !");
+  console.log("de sua jogabilidade !"); 
   console.log();
   console.log("----------------------------------------------");
 }
-
 
 //Função para mostra das posições
 function posicao() {
@@ -438,7 +437,7 @@ dar certo é menor `);
 console.log();
 console.log();
 
-console.log(" The bug: ");
+console.log(" The Volei: ");
 console.log();
 console.log();
 
