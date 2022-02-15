@@ -443,7 +443,7 @@ console.log();
 const character = prompt("Digite um nome para seu personagem: ");
 
 console.log();
-while (finish != "s" || finish != 'sim');
+while (finish == "s" || finish == 'sim');
 {
   console.clear()
 
