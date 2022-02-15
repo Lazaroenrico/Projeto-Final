@@ -4,7 +4,7 @@ console.log();
 
 //variveis e arrays
 let school;
-let finish = 'sim';
+let finish = "sim";
 let relogio;
 let attk;
 let placar = 0;
@@ -14,26 +14,27 @@ let rod;
 let clear;
 let rodar;
 let testesaque;
-
+let i = 0
+        
 //objeto e alguns com metodos
 
 let pontuacao = {
   timInimigo: 0,
-  seuTime: 0 ,
+  seuTime: 0,
   turn: 0,
   metodo: function () {
     this.turn++;
   },
   mudancaSet: function () {
-    if (placar > placar2 ) {
+    if (placar > placar2) {
       this.seuTime++;
-      console.log(`Seu time ganhou ${this.seuTime } set(s).`);
-      console.log()
+      console.log(`Seu time ganhou ${this.seuTime} set(s).`);
+      console.log();
     }
-    if (placar2 > placar ) {
+    if (placar2 > placar) {
       this.timeInimigo++;
-      console.log(`Seu time ganhou ${this.timInimigo } set(s).`);
-      console.log()
+      console.log(`Seu time ganhou ${this.timInimigo} set(s).`);
+      console.log();
     }
   },
 };
@@ -159,7 +160,7 @@ function obs() {
   console.log();
   console.log("As partidas de vôlei, terão uma duração menor do que");
   console.log("o convencional, para que o jogador não sature");
-  console.log("de sua jogabilidade !"); 
+  console.log("de sua jogabilidade !");
   console.log();
   console.log("----------------------------------------------");
 }
@@ -275,7 +276,7 @@ dar certo é menor `);
       console.log();
       while (defesa != 1 && defesa != 2) {
         defesa = +prompt("Invalido, digite novamente: ");
-        console.log()
+        console.log();
       }
       if (defesa == 1) {
         rod = rolai();
@@ -290,7 +291,7 @@ dar certo é menor `);
 
           placar2++;
         } else if (rod == 2) {
-          console.log()
+          console.log();
           console.log("Boa você conseguiu receber bem !");
           rod = rolai();
 
@@ -333,8 +334,8 @@ dar certo é menor `);
               console.log("essa era do levantador !!");
               console.log();
               relogio.tempo(4);
-             relogio.mostrar();
-             console.log()
+              relogio.mostrar();
+              console.log();
               clear = prompt("Enter...");
               console.clear();
               placar2++;
@@ -394,7 +395,7 @@ dar certo é menor `);
         console.log("e loga em seguida passa para o levanatdor");
         console.log();
         console.log("Você quer realizar um corte ? ");
-        console.log()
+        console.log();
         let corte = prompt("Resposta: ");
 
         while (
@@ -408,9 +409,9 @@ dar certo é menor `);
         }
 
         if (corte.toLowerCase() == "sim" || corte.toLowerCase() == "s") {
-          console.log()
+          console.log();
           console.log("Você realiza o corte e faz o ponto");
-          console.log()
+          console.log();
           relogio.tempo(3);
           relogio.mostrar();
 
@@ -418,9 +419,9 @@ dar certo é menor `);
           testesaque = 2;
         }
         if (corte.toLowerCase() == "nao" || corte.toLowerCase() == "n") {
-          console.log()
+          console.log();
           console.log("Você joga com segurança a bola para o outro lado !");
-          console.log()
+          console.log();
           relogio.tempo(1);
           relogio.mostrar();
           continue Teste;
@@ -429,7 +430,6 @@ dar certo é menor `);
     }
   }
   pontuacao.mudancaSet();
-
 }
 
 // INICIO DO JOGO
@@ -443,9 +443,15 @@ console.log();
 const character = prompt("Digite um nome para seu personagem: ");
 
 console.log();
-while (finish == "s" || finish == 'sim');
+do
 {
-  console.clear()
+  placar = 0
+  turn = 0
+  placar2 = 0
+ 
+
+
+  console.clear();
 
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
   console.log();
@@ -533,10 +539,12 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-   for(let i = 0; i < 3; i++){
-    Game();
-    }
     
+    while(i < 3){
+      i++
+      Game();
+    }
+
   }
   if (school == "Aomine") {
     console.clear();
@@ -610,10 +618,10 @@ seu sonho de entrar para um time no colegial.
     console.log("O colegio chegou e o jogo começou:");
     console.log();
 
-    for(let i = 0; i < 3; i++){
-      
+    while(i < 3){
+      i++
       Game();
-      }
+    }
   }
 
   if (school == "Oikawa") {
@@ -683,33 +691,31 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-    for(let i = 0; i < 3; i++){
-    Game();
+    while(i < 3){
+      i++
+      Game();
     }
-    
-    
   }
-  
-  console.log('                 FIM DE SUA CAMINHA                  ')
-  console.log()
-  console.log('Espero que você tenha gostado dessa experiência ')
-  console.log('e obrigado por ter jogado até aqui !')
 
-console.log()
-console.log()
-console.log('Caso queira jogar novamente digite "SIM abaixo"')
-console.log()
-finish = prompt('Resposta: ')
+  console.log("                 FIM DE SUA CAMINHA                  ");
+  console.log();
+  console.log("Espero que você tenha gostado dessa experiência ");
+  console.log("e obrigado por ter jogado até aqui !");
 
-while(finish.toLowerCase() != "sim" &&
-finish != "s" &&
-finish.toLowerCase() != "nao" &&
-finish != "n" ){
-  console.log()
+  console.log();
+  console.log();
+  console.log('Caso queira jogar novamente digite "SIM abaixo"');
+  console.log();
+  finish = prompt("Resposta: ");
 
-  finish = prompt('Digite "sim" ou "nao" : ')
+  while (
+    finish.toLowerCase() != "sim" &&
+    finish != "s" &&
+    finish.toLowerCase() != "nao" &&
+    finish != "n"
+  ) {
+    console.log();
 
-
-    
+    finish = prompt('Digite "sim" ou "nao" : ');
   }
-}
+}while (finish.toLowerCase() == 's' || finish.toLowerCase() == 'sim');
