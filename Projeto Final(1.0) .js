@@ -14,6 +14,7 @@ let rod;
 let clear;
 let rodar;
 let testesaque;
+let status;
         
 //objeto e alguns com metodos
 
@@ -27,12 +28,14 @@ let pontuacao = {
   mudancaSet: function () {
     if (placar > placar2) {
       this.seuTime++;
-      console.log(`Seu time ganhou ${this.seuTime} set(s).`);
+      let s = prompt(`|| Seu time ganhou ${this.seuTime} set(s). ||`);
+      console.clear();
       console.log();
     }
     if (placar2 > placar) {
       this.timeInimigo++;
-      console.log(`Seu time ganhou ${this.timInimigo} set(s).`);
+     let s = prompt(`|| Seu time ganhou ${this.timInimigo} set(s). ||`);
+     console.clear();
       console.log();
     }
   },
@@ -57,7 +60,50 @@ relogio = {
     console.log(`Se passsaram ${this.Minuto} minutos de jogo`);
     console.log(`------------------------`);
   },
+  zerar: function(){
+    this.hora = 0
+    this.Minuto = 0
+  },
 };
+
+status = { reputacao: 0,
+          reputacao2: 0,
+
+
+
+  aumentar: function(){
+     this.reputacao++;
+     console.log(`|| Sua reputação aumento em ${this.reputacao}. ||`)
+     console.log()
+
+  },
+  diminuir: function(){
+    this.reputacao2++
+    console.log(`|| Sua reputação diminuiu em: ${this.reputacao2}. ||`)
+    console.log()
+  },
+
+  resultado: function(){
+    let resultado = this.reputacao - this.reputacao2
+    console.log(`|| Você terminou com ${resultado} de reputação. ||`)
+    console.log()
+  },
+
+  apenas: function(){
+    this.reputacao = 0 
+    this.reputacao2 = 0
+  }
+   
+}
+
+
+
+
+
+
+
+
+
 
 let desafio = [
   "Entrosamento com o time: terá que comer os restos dos jogadores.",
@@ -166,9 +212,8 @@ function obs() {
 
 //Função para mostra das posições
 function posicao() {
-  console.log(`As posições existentes e o número de jogadores no vôlei são:
-
-  Possui 6 jogadores em campo, mas são 5 POSIÇÕES e elas são:
+  console.log(`
+  O vôlei possui 6 jogadores em campo, mas com 5 POSIÇÕES, e elas são:
 
   [1] Levantador
   Sua função é distribuir a bola para que seus companheiros possam atacar.
@@ -226,13 +271,20 @@ function rodizio(argumento) {
         console.log();
         placar++;
         console.log("QUE SAQUEEEE, FOI UM BELO ACE !!");
-        //pontuação
+        console.log()
+        status.aumentar()
       }
     } while (rodar == 2);
 
     break;
   }
   return rodar;
+}
+
+
+function parecer(){
+  console.log(`||| O jogo está ${placar} x ${placar2} |||`)
+  console.log()
 }
 
 //função para não precisar repetir isso nas 3 escolas
@@ -283,33 +335,38 @@ dar certo é menor `);
         if (rod == 3) {
           console.log("Que pena, você foi muito lento !");
           console.log();
+          placar2++;
+          parecer()
           relogio.tempo(1);
           relogio.mostrar();
+          console.log()
           clear = prompt("Enter...");
           console.clear();
 
-          placar2++;
         } else if (rod == 2) {
           console.log();
           console.log("Boa você conseguiu receber bem !");
+          console.log()
+          status.aumentar()
           rod = rolai();
 
           if (rod == 1 || rod == 2) {
             console.log();
             attk = prompt("Você irá passar para o levantador ? ");
             console.log();
-
+             
             while (
               attk.toLowerCase() != "sim" &&
-              attk.toUpperCase() != "sim" &&
+              attk.toLowerCase() != "s" &&
               attk.toLowerCase() != "nao" &&
-              attk.toUpperCase() != "nao"
+              attk.toLowerCase() != "n" 
+
             ) {
               attk = prompt('Digite "sim" ou "nao": ');
               console.log();
             }
 
-            if (attk == "sim") {
+            if (attk == "sim" || attk == 's') {
               console.log("| Você passou para o levantador |");
               console.log();
               console.log("O LEVANTADOR: ");
@@ -319,12 +376,16 @@ dar certo é menor `);
               console.log("| PONTO |");
               console.log();
               console.log("Viu como que se joga novato !");
+              console.log()
+              status.aumentar()
+              placar++;
+              parecer()
               relogio.tempo(4);
               relogio.mostrar();
+              console.log()
               clear = prompt("Enter...");
               console.clear();
-              placar++;
-            } else if (attk == "nao") {
+            } else if (attk == "nao" || attk == 'n') {
               console.log("| Você passou para o ponta 1 |");
               console.log();
               console.log("PONTA 1:");
@@ -332,12 +393,15 @@ dar certo é menor `);
               console.log("Porra novato, não consegui chegar a tempo");
               console.log("essa era do levantador !!");
               console.log();
+              status.diminuir()
+              placar2++;  
+              parecer()
+              console.log()
               relogio.tempo(4);
               relogio.mostrar();
               console.log();
               clear = prompt("Enter...");
               console.clear();
-              placar2++;
             }
           }
         } else if (rod == 1) {
@@ -345,11 +409,14 @@ dar certo é menor `);
           console.log();
           console.log("| ATAQUE RÁPIDO |");
           console.log();
+          status.aumentar()
+          placar++;
+          parecer()
+          console.log()
           relogio.tempo(3);
           relogio.mostrar();
           clear = prompt("Enter...");
           console.clear();
-          placar++;
           break Teste;
         }
       } else if ((defesa = 2)) {
@@ -359,22 +426,26 @@ dar certo é menor `);
           console.log();
           console.log("Boa leitura novato");
           console.log();
+          status.aumentar()
+          placar++;
+          parecer()
           relogio.tempo(1);
           relogio.mostrar();
           clear = prompt("Enter...");
           console.clear();
-          placar++;
           break Teste;
         } else if (rod == 2 || rod == 3) {
           console.log();
           console.log("Era só receber soft novato, que");
           console.log("você ia pegar !");
           console.log();
+          status.diminuir()
+          placar2++;
+          parecer()
           relogio.tempo(1);
           relogio.mostrar();
           clear = prompt("Enter...");
           console.clear();
-          placar2++;
         }
       }
       clear = prompt("Enter...");
@@ -383,9 +454,11 @@ dar certo é menor `);
       rod = rolai();
       if (rod == 1) {
         console.log("O time inimigo erra o saque e fazemos um ponto");
+        placar++;
+        console.log()
+        parecer()
         relogio.tempo(3);
         relogio.mostrar();
-        placar++;
         testesaque = 2;
       }
       if (rod == 2 || rod == 3) {
@@ -411,16 +484,21 @@ dar certo é menor `);
           console.log();
           console.log("Você realiza o corte e faz o ponto");
           console.log();
+          status.aumentar()
+          ++placar;
+          parecer()
           relogio.tempo(3);
           relogio.mostrar();
 
-          ++placar;
           testesaque = 2;
         }
         if (corte.toLowerCase() == "nao" || corte.toLowerCase() == "n") {
           console.log();
           console.log("Você joga com segurança a bola para o outro lado !");
           console.log();
+          status.diminuir()
+          console.log('É novato, o medo bateu ai ?')
+          console.log()
           relogio.tempo(1);
           relogio.mostrar();
           continue Teste;
@@ -444,6 +522,9 @@ const character = prompt("Digite um nome para seu personagem: ");
 console.log();
 do
 {
+  status.apenas()
+ relogio.zerar()
+
   console.clear();
 
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
@@ -494,6 +575,9 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
+    status.aumentar()
+    status.aumentar()
+    status.aumentar()
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -537,6 +621,9 @@ seu sonho de entrar para um time no colegial.
       i++
       Game();
     }
+    console.log()
+    status.resultado()
+    console.log()
 
   }
   if (school == "Aomine") {
@@ -571,6 +658,9 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
+    status.aumentar()
+    status.aumentar()
+    status.aumentar()
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -615,6 +705,9 @@ seu sonho de entrar para um time no colegial.
       i++
       Game();
     }
+    console.log()
+    status.resultado()
+    console.log()
   }
 
   if (school == "Oikawa") {
@@ -647,6 +740,10 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
+    status.aumentar()
+    status.aumentar()
+    status.aumentar()
+
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -683,12 +780,15 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     console.log("O colegio chegou e o jogo começou:");
-    console.log();
+    console.log();  
     let i = 0
     while(i < 3){
       i++
       Game();
     }
+    console.log()
+    status.resultado()
+    console.log()
   }
 
   console.log("                 FIM DE SUA CAMINHA                  ");
