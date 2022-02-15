@@ -251,11 +251,10 @@ function Game() {
   placar2 = 0;
 
   Game: for (let i = 0; i < 3; i++) {
-    console.log('for interno', i)
     testesaque = rodizio(teste);
 
     Teste: while (testesaque == 1) {
-      
+      console.log();
       console.log("O libero inimigo recebeu.");
       console.log();
       clear = prompt("Enter...");
