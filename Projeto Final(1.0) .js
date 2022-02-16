@@ -15,7 +15,7 @@ let clear;
 let rodar;
 let testesaque;
 let status;
-        
+
 //objeto e alguns com metodos
 
 let pontuacao = {
@@ -34,11 +34,14 @@ let pontuacao = {
     }
     if (placar2 > placar) {
       this.timeInimigo++;
-     let s = prompt(`|| Seu time ganhou ${this.timInimigo} set(s). ||`);
-     console.clear();
+      let s = prompt(`|| Seu time ganhou ${this.timInimigo} set(s). ||`);
+      console.clear();
       console.log();
     }
   },
+  zerarT: function(){
+    this.turn == 0
+  }
 };
 
 relogio = {
@@ -59,51 +62,40 @@ relogio = {
     console.log(`Se passaram ${this.Hora}hr(s) de jogo`);
     console.log(`Se passsaram ${this.Minuto} minutos de jogo`);
     console.log(`------------------------`);
+    console.log()
   },
-  zerar: function(){
-    this.hora = 0
-    this.Minuto = 0
+  zerar: function () {
+    this.hora = 0;
+    this.Minuto = 0;
   },
 };
 
-status = { reputacao: 0,
-          reputacao2: 0,
+status = {
+  reputacao: 0,
+  reputacao2: 0,
 
-
-
-  aumentar: function(){
-     this.reputacao++;
-     console.log(`|| Sua reputação aumento em ${this.reputacao}. ||`)
-     console.log()
-
+  aumentar: function () {
+    this.reputacao++;
+    console.log(`|| Sua reputação aumento em ${this.reputacao}. ||`);
+    console.log();
   },
-  diminuir: function(){
-    this.reputacao2++
-    console.log(`|| Sua reputação diminuiu em: ${this.reputacao2}. ||`)
-    console.log()
+  diminuir: function () {
+    this.reputacao2++;
+    console.log(`|| Sua reputação diminuiu em: ${this.reputacao2}. ||`);
+    console.log();
   },
 
-  resultado: function(){
-    let resultado = this.reputacao - this.reputacao2
-    console.log(`|| Você terminou com ${resultado} de reputação. ||`)
-    console.log()
+  resultado: function () {
+    let resultado = this.reputacao - this.reputacao2;
+    console.log(`|| Você terminou com ${resultado} de reputação. ||`);
+    console.log();
   },
 
-  apenas: function(){
-    this.reputacao = 0 
-    this.reputacao2 = 0
-  }
-   
-}
-
-
-
-
-
-
-
-
-
+  apenas: function () {
+    this.reputacao = 0;
+    this.reputacao2 = 0;
+  },
+};
 
 let desafio = [
   "Entrosamento com o time: terá que comer os restos dos jogadores.",
@@ -271,8 +263,8 @@ function rodizio(argumento) {
         console.log();
         placar++;
         console.log("QUE SAQUEEEE, FOI UM BELO ACE !!");
-        console.log()
-        status.aumentar()
+        console.log();
+        status.aumentar();
       }
     } while (rodar == 2);
 
@@ -281,10 +273,9 @@ function rodizio(argumento) {
   return rodar;
 }
 
-
-function parecer(){
-  console.log(`||| O jogo está ${placar} x ${placar2} |||`)
-  console.log()
+function parecer() {
+  console.log(`||| O jogo está ${placar} x ${placar2} |||`);
+  console.log();
 }
 
 //função para não precisar repetir isso nas 3 escolas
@@ -336,37 +327,35 @@ dar certo é menor `);
           console.log("Que pena, você foi muito lento !");
           console.log();
           placar2++;
-          parecer()
+          parecer();
           relogio.tempo(1);
           relogio.mostrar();
-          console.log()
+          console.log();
           clear = prompt("Enter...");
           console.clear();
-
         } else if (rod == 2) {
           console.log();
           console.log("Boa você conseguiu receber bem !");
-          console.log()
-          status.aumentar()
+          console.log();
+          status.aumentar();
           rod = rolai();
 
           if (rod == 1 || rod == 2) {
             console.log();
             attk = prompt("Você irá passar para o levantador ? ");
             console.log();
-             
+
             while (
               attk.toLowerCase() != "sim" &&
               attk.toLowerCase() != "s" &&
               attk.toLowerCase() != "nao" &&
-              attk.toLowerCase() != "n" 
-
+              attk.toLowerCase() != "n"
             ) {
               attk = prompt('Digite "sim" ou "nao": ');
               console.log();
             }
 
-            if (attk == "sim" || attk == 's') {
+            if (attk == "sim" || attk == "s") {
               console.log("| Você passou para o levantador |");
               console.log();
               console.log("O LEVANTADOR: ");
@@ -376,16 +365,16 @@ dar certo é menor `);
               console.log("| PONTO |");
               console.log();
               console.log("Viu como que se joga novato !");
-              console.log()
-              status.aumentar()
+              console.log();
+              status.aumentar();
               placar++;
-              parecer()
+              parecer();
               relogio.tempo(4);
               relogio.mostrar();
-              console.log()
+              console.log();
               clear = prompt("Enter...");
               console.clear();
-            } else if (attk == "nao" || attk == 'n') {
+            } else if (attk == "nao" || attk == "n") {
               console.log("| Você passou para o ponta 1 |");
               console.log();
               console.log("PONTA 1:");
@@ -393,10 +382,10 @@ dar certo é menor `);
               console.log("Porra novato, não consegui chegar a tempo");
               console.log("essa era do levantador !!");
               console.log();
-              status.diminuir()
-              placar2++;  
-              parecer()
-              console.log()
+              status.diminuir();
+              placar2++;
+              parecer();
+              console.log();
               relogio.tempo(4);
               relogio.mostrar();
               console.log();
@@ -409,10 +398,10 @@ dar certo é menor `);
           console.log();
           console.log("| ATAQUE RÁPIDO |");
           console.log();
-          status.aumentar()
+          status.aumentar();
           placar++;
-          parecer()
-          console.log()
+          parecer();
+          console.log();
           relogio.tempo(3);
           relogio.mostrar();
           clear = prompt("Enter...");
@@ -426,9 +415,9 @@ dar certo é menor `);
           console.log();
           console.log("Boa leitura novato");
           console.log();
-          status.aumentar()
+          status.aumentar();
           placar++;
-          parecer()
+          parecer();
           relogio.tempo(1);
           relogio.mostrar();
           clear = prompt("Enter...");
@@ -439,9 +428,9 @@ dar certo é menor `);
           console.log("Era só receber soft novato, que");
           console.log("você ia pegar !");
           console.log();
-          status.diminuir()
+          status.diminuir();
           placar2++;
-          parecer()
+          parecer();
           relogio.tempo(1);
           relogio.mostrar();
           clear = prompt("Enter...");
@@ -455,8 +444,8 @@ dar certo é menor `);
       if (rod == 1) {
         console.log("O time inimigo erra o saque e fazemos um ponto");
         placar++;
-        console.log()
-        parecer()
+        console.log();
+        parecer();
         relogio.tempo(3);
         relogio.mostrar();
         testesaque = 2;
@@ -484,9 +473,9 @@ dar certo é menor `);
           console.log();
           console.log("Você realiza o corte e faz o ponto");
           console.log();
-          status.aumentar()
+          status.aumentar();
           ++placar;
-          parecer()
+          parecer();
           relogio.tempo(3);
           relogio.mostrar();
 
@@ -496,9 +485,10 @@ dar certo é menor `);
           console.log();
           console.log("Você joga com segurança a bola para o outro lado !");
           console.log();
-          status.diminuir()
-          console.log('É novato, o medo bateu ai ?')
+          console.log("É novato, o medo bateu ai ?");
           console.log()
+          status.diminuir();
+          console.log();
           relogio.tempo(1);
           relogio.mostrar();
           continue Teste;
@@ -520,12 +510,7 @@ console.log();
 const character = prompt("Digite um nome para seu personagem: ");
 
 console.log();
-do
-{
-  status.apenas()
- relogio.zerar()
 
-  console.clear();
 
   console.log(`Escolha uma dessas escolas para ${character} frequentar`);
   console.log();
@@ -575,9 +560,9 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
-    status.aumentar()
-    status.aumentar()
-    status.aumentar()
+    status.aumentar();
+    status.aumentar();
+    status.aumentar();
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -595,9 +580,9 @@ seu sonho de entrar para um time no colegial.
     console.log(` Comigo de capitão( Myke ), eu tenho a confiança e vejo a possibilidade
     de ganahrmos a Liga RJ esse ano !
 
-     Novato, você era conhecido pelos seus passes 'perfeitos' e sua combinação de 
-     jogadas com seus antigos membros, depois iremos ver realmente se suas 
-     habilidades são tudo isso no treino depois da aula.`);
+ Novato, você era conhecido pelos seus passes 'perfeitos' e sua combinação de 
+jogadas com seus antigos membros, depois iremos ver realmente se suas 
+habilidades são tudo isso no treino depois da aula.`);
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -607,7 +592,7 @@ seu sonho de entrar para um time no colegial.
     console.log(`'Depois da aula:'`);
     console.log();
     console.log(`Teremos um jogo treino contra o colegio Aomine, joguem com tudo
-        para mostrar ao novato como é um jogo de verdade.`);
+ para mostrar ao novato como é um jogo de verdade.`);
     console.log();
     console.log("----------------------------------------------");
     clear = prompt(`De enter para continuar...`);
@@ -616,15 +601,15 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-    let i = 0   
-    while(i < 3){
-      i++
+    let i = 0;
+    
+    while (i < 3) {
+      i++;
       Game();
     }
-    console.log()
-    status.resultado()
-    console.log()
-
+    console.log();
+    status.resultado();
+    console.log();
   }
   if (school == "Aomine") {
     console.clear();
@@ -658,9 +643,9 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
-    status.aumentar()
-    status.aumentar()
-    status.aumentar()
+    status.aumentar();
+    status.aumentar();
+    status.aumentar();
     console.log("----------------------------------------------");
     console.log();
     clear = prompt(`De enter para continuar...`);
@@ -700,14 +685,14 @@ seu sonho de entrar para um time no colegial.
     console.log();
     console.log("O colegio chegou e o jogo começou:");
     console.log();
-    let i = 0
-    while(i < 3){
-      i++
+    let i = 0;
+    while (i < 3) {
+      i++;
       Game();
     }
-    console.log()
-    status.resultado()
-    console.log()
+    console.log();
+    status.resultado();
+    console.log();
   }
 
   if (school == "Oikawa") {
@@ -740,9 +725,9 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     random1();
-    status.aumentar()
-    status.aumentar()
-    status.aumentar()
+    status.aumentar();
+    status.aumentar();
+    status.aumentar();
 
     console.log("----------------------------------------------");
     console.log();
@@ -780,15 +765,15 @@ seu sonho de entrar para um time no colegial.
     console.log("----------------------------------------------");
     console.log();
     console.log("O colegio chegou e o jogo começou:");
-    console.log();  
-    let i = 0
-    while(i < 3){
-      i++
+    console.log();
+    let i = 0;
+    while (i < 3) {
+      i++;
       Game();
     }
-    console.log()
-    status.resultado()
-    console.log()
+    console.log();
+    status.resultado();
+    console.log();
   }
 
   console.log("                 FIM DE SUA CAMINHA                  ");
@@ -796,20 +781,4 @@ seu sonho de entrar para um time no colegial.
   console.log("Espero que você tenha gostado dessa experiência ");
   console.log("e obrigado por ter jogado até aqui !");
 
-  console.log();
-  console.log();
-  console.log('Caso queira jogar novamente digite "SIM abaixo"');
-  console.log();
-  finish = prompt("Resposta: ");
-
-  while (
-    finish.toLowerCase() != "sim" &&
-    finish != "s" &&
-    finish.toLowerCase() != "nao" &&
-    finish != "n"
-  ) {
-    console.log();
-
-    finish = prompt('Digite "sim" ou "nao" : ');
-  }
-}while (finish.toLowerCase() == 's' || finish.toLowerCase() == 'sim');
+  
